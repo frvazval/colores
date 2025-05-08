@@ -10,6 +10,7 @@ $password = "root";
 // Conexión a la base de datos
 try {
     $conn = new PDO ("mysql:host=$host;port=$port;dbname=$database;charset='UTF-8'", $user, $password);
+    echo "Conectado !!";
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
