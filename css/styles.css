@@ -24,3 +24,41 @@ section >div{
     border-radius: 5px;
     padding: .5rem 1rem;
 }
+
+fieldset {
+    margin-top: .5rem;
+    padding: 1rem;
+
+    div {
+        margin-bottom: 1rem;
+    }
+
+    div:last-child {
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    button {
+        padding: .5rem 1rem;
+        
+    }
+
+    button[type="submit"] {
+        background-color: greenyellow;        
+    }
+
+    button[type="reset"] {
+        background-color: darksalmon        
+    }
+}
+
+label {
+    display: block;
+    
+}
+
+input {
+    padding: .5rem 1rem;
+    width: 100%;
+}

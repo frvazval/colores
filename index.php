@@ -47,7 +47,22 @@ $array_filas = $select_pre->fetchAll();
         </section>
         <section>
             <h2>Indica tus datos</h2>
-
+            <form action="insert.php" method="post">
+                <fieldset>
+                    <div>
+                        <label for="usuario">Nombre del usuario</label>
+                        <input type="text" name="usuario">
+                    </div>
+                    <div>
+                        <label for="color">Nombre del color</label>
+                        <input type="text" name="color">
+                    </div>
+                    <div>
+                        <button type="submit">Enviar</button>
+                        <button type="reset">Limpiar formulario</button>
+                    </div>
+                </fieldset>
+            </form>    
         </section>    
 
     </main>
