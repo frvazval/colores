@@ -51,7 +51,7 @@ $array_filas = $select_pre->fetchAll();
                 <div style="background-color: <?=$fila['color_en'] ?>;color:<?=$color?>;">
                     <p> <?php echo $fila["usuario"] ?></p>
                     <span class="icons">
-                        <a href="">
+                        <a href="update.php">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </a>
                         <a href="delete.php?id=<?=$fila['id_color']?>">
@@ -64,6 +64,7 @@ $array_filas = $select_pre->fetchAll();
         </section>
         <section>
             <h2>Indica tus datos</h2>
+            <!-- Formulario para insertar un nuevo usuario y su color preferido -->
             <form action="insert.php" method="post">
                 <fieldset>
                     <div>
