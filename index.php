@@ -54,7 +54,7 @@ $array_filas = $select_pre->fetchAll();
                         <a href="">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </a>
-                        <a href="delete.php?id=<?=$fila['id_color'] ?>">
+                        <a href="delete.php?id=<?=$fila['id_color']?>">
                             <i class="fa-solid fa-trash-can"></i>
                         </a>
                 </span>
