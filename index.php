@@ -9,7 +9,7 @@
 // Hace el require solo una vez
 require_once "connection.php";
 
-$array_fondo_claro = ["white", "yelow", "pink", "darksalmon", "orange"];
+$array_fondo_claro = ["white", "yellow", "pink", "darksalmon", "orange"];
 
 // 1 - Definir la sentencia (query)
 $select = "SELECT * FROM colores;";
