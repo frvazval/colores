@@ -4,13 +4,14 @@
 require_once "connection.php";
 
 // 1 - Definir la sentencia preparada
-$insert = "DELETE FROM colores WHERE id_color = $_POST[id_color];";
+$delete = "DELETE FROM colores WHERE id_color = ?;";
+
 // 2 - Preparar la sentencia
-$insert_pre = $conn->prepare($insert);
+$delete_pre = $conn->prepare($delete);
 // 3 - Ejecutar la sentencia
-$insert_pre->execute();
-// 4 - Anular el $insert_pre
-$insert_pre = null;
+$delete_pre->execute($_GET['id']);
+// 4 - Anular el $delete_pre
+$delete_pre = null;
 // 5 - Anular el $conn
 $conn = null;
 
