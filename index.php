@@ -9,6 +9,8 @@
 // Hace el require solo una vez
 require_once "connection.php";
 
+$array_fondo_claro = ["white", "yelow", "pink", "darksalmon", "orange"];
+
 // 1 - Definir la sentencia (query)
 $select = "SELECT * FROM colores;";
 // 2 - Preparar la sentencia
@@ -39,7 +41,13 @@ $array_filas = $select_pre->fetchAll();
         <section>
             <h2>Nuestros usuarios</h2>
             <?php foreach($array_filas as $fila) : ?>
-                <div style="background-color: <?=$fila['color_en'] ?>;">
+                <?php $color = "white";
+                    if (in_array($fila['color_en'],$array_fondo_claro)) {
+                        $color = "black";
+                    }   
+                    
+                ?>
+                <div style="background-color: <?=$fila['color_en'] ?>;color:<?=$color?>;">
                     <p> <?php echo $fila["usuario"] ?></p>
                 </div>
 
