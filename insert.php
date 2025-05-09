@@ -30,6 +30,10 @@ $insert = "INSERT INTO colores(usuario, color_es, color_en) VALUES (?, ?, ?);";
 $insert_pre = $conn->prepare($insert);
 // 3 - Ejecutar la sentencia
 $insert_pre->execute([$usuario, $color_es, $array_colores_es_en[$color_es]]);
+// 4 - Anular el $insert_pre
+$insert_pre = null;
+// 5 - Anular el $conn
+$conn = null;
 
 // para que vuelva a la pagina principal
 header('location: index.php');
