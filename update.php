@@ -4,7 +4,7 @@
 require_once "connection.php";
 
 // 1 - Definir la sentencia preparada
-$update = "update FROM colores WHERE id_color = ?;";
+$update = "update FROM colores SET usuario = ?, color_es = ?, color_en = ? WHERE id_color = ?;";
 // 2 - Preparar la sentencia
 $update_pre = $conn->prepare($update);
 // 3 - Ejecutar la sentencia
