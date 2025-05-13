@@ -13,6 +13,15 @@ $usuario = $_POST["usuario"];
 // para que no permita ejecutar codigo html y las comillas
 $usuario = htmlentities($usuario, ENT_QUOTES, "UTF-8");
 
+
+if (!empty ($_POST['web'])) {
+    // Si el campo web no está vacío, redirigir a la página de inicio
+    // Porque significa que alguien ha intentado hacer un ataque
+    $_SESSION['error'] = true;
+    header('location:index.php');
+    exit();
+}
+
 if (!hash_equals($_SESSION['token'], $_POST['token'])) {
     // Si el token no coincide, redirigir a la página de inicio
     $_SESSION['error'] = true;

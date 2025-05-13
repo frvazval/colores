@@ -93,6 +93,8 @@ $array_filas = $select_pre->fetchAll();
             <!-- Formulario para insertar un nuevo usuario y su color preferido -->
             <form action="insert.php" method="post">
                 <input type="hidden" name="token" value ="<?= $_SESSION['token'] ?>">
+                <!-- Este input text es para el honeypot, no lo ve el usuario -->
+                <input type="text" name="web" style="display:none">
                 <fieldset>
                     <div>
                         <label for="usuario">Nombre del usuario</label>
