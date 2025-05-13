@@ -8,7 +8,7 @@ formInsert.addEventListener('submit', (e) =>{
 
     // Obtener los dfatos del formulario
     const usuario = formInsert['usuario'].value.trim()
-    const color = formInsert['color'].value.trim()
+    const color = formInsert['color'].value.trim().toLocalelowerCase()
     const web = formInsert['web'].value
     const token = formInsert['token'].value
 
@@ -31,4 +31,24 @@ formInsert.addEventListener('submit', (e) =>{
         return
     }
 
+
+    // Comprobación del Bot
+    if (web !== "") {
+        document.getElementById('errorColor').innerHTML = "Bot Detectado"
+    }
+        
+    
+    // Comprobación REGEX = REGular Expresions
+
+
+
+    // Enviar datos a insert.php por POST
+    const datos = new URLSearchParams()
+    datos.append("usuario", usuario)
+    datos.append("color", color)
+    datos.append("token", token)
+    datos.append("web", web)
+
+    
+    
 })
