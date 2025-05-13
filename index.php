@@ -51,10 +51,10 @@ $array_filas = $select_pre->fetchAll();
                 <div style="background-color: <?=$fila['color_en'] ?>;color:<?=$color?>;">
                     <p> <?php echo $fila["usuario"] ?></p>
                     <span class="icons">
-                        <a href="index.php?id=<?=$fila['id_color']?>&usuario=<?=$fila['usuario']?>&color=<?=$fila['color_es']?>">
+                        <a href="index.php?id=<?=$fila['id_color']?>&usuario=<?=$fila['usuario']?>&color=<?=$fila['color_es']?>" title="Modificar valores">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </a>
-                        <a href="delete.php?id=<?=$fila['id_color']?>">
+                        <a href="delete.php?id=<?=$fila['id_color']?>" title="Eliminar elementos">
                             <i class="fa-solid fa-trash-can"></i>
                         </a>
                 </span>
