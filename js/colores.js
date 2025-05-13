@@ -55,6 +55,17 @@ formInsert.addEventListener('submit', (e) =>{
         return
     }
 
+    if (reglaUsuario) {
+        document.getElementById('errorUsuario').innerHTML = mensajeRegex;
+        return
+    }
+
+    if (reglaColor) {
+        document.getElementById('errorColor').innerHTML = mensajeRegex;
+        return
+    }
+
+
     // Enviar datos a insert.php por POST
     const datos = new URLSearchParams()
     datos.append("usuario", usuario)
