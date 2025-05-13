@@ -91,7 +91,10 @@ $array_filas = $select_pre->fetchAll();
 
             <h2>Indica tus datos</h2>
             <!-- Formulario para insertar un nuevo usuario y su color preferido -->
-            <form action="insert.php" method="post">
+             <!-- Linea comentada para que los datos no vayan directamente a insert.php
+            <form action="insert.php" method="post"> -->
+
+            <form name="formInsert">
                 <input type="hidden" name="token" value ="<?= $_SESSION['token'] ?>">
                 <!-- Este input text es para el honeypot, no lo ve el usuario -->
                 <input type="text" name="web" style="display:none">
@@ -99,10 +102,12 @@ $array_filas = $select_pre->fetchAll();
                     <div>
                         <label for="usuario">Nombre del usuario</label>
                         <input type="text" name="usuario">
+                        <p id="errorUsuario"></p>
                     </div>
                     <div>
                         <label for="color">Nombre del color</label>
                         <input type="text" name="color">
+                        <p id="errorcolor"></p>
                     </div>
                     <div>
                         <button type="submit">Enviar</button>
@@ -110,20 +115,19 @@ $array_filas = $select_pre->fetchAll();
                     </div>
                 </fieldset>
             </form>  
-           <?php endif ?> 
+           <?php endif ?>                           
+           
             
-            
+            <?php if ($_SESSION['error']): ?>
+            <p>El token no coincide. Por favor, vuelve a intentarlo.</p>
+            <?php endif; ?>
         </section>    
 
-        <?php if ($_SESSION['error']): ?>
-            <p>El token no coincide. Por favor, vuelve a intentarlo.</p>
-        <?php endif; ?>
+        
               
     </main>
     <script src="js/colores.js"></script>
-    <footer>
-        <p>Colores - 2023</p>
-        <p>Desarrollado por <a href="
+    
 </body>
 </html>
 

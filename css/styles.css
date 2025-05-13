@@ -73,3 +73,10 @@ input {
         text-decoration: none;
     }
 }
+
+#errorFormulario {
+    border: none;
+    margin-top: 2rem;
+    color: red;
+    font-size: 1.2rem;
+}
