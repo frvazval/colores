@@ -39,8 +39,21 @@ formInsert.addEventListener('submit', (e) =>{
         
     
     // Comprobación REGEX = REGular Expresions
-    
+    // Regla a cumplir
+    const regex1 = /^[A-zÑñÇçÁÉÍÓÚáéíóúÀÈÌÒÙàèìòùïÏüÜ·\s]+$/
+    // Regla a NO cumplir
+    const regex2 = /\W+/
+    const regex3 = /\d+/
 
+    const reglaUsuario = (regex2.test(usuario) || regex3.test(usuario)) && !regex1.test(usuario)
+    const reglaColor = (regex2.test(color) || regex3.test(color)) && !regex1.test(color)
+
+    const mensajeRegex = "Caracteres no validosa"
+    if (reglaUsuario && reglaColor) {
+        document.getElementById('errorUsuario').innerHTML = mensajeRegex;
+        document.getElementById('errorColor').innerHTML = mensajeRegex;
+        return
+    }
 
     // Enviar datos a insert.php por POST
     const datos = new URLSearchParams()
