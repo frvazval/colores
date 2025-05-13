@@ -5,8 +5,8 @@ $host = "localhost";
 $database = "colores";
 // $database = "biblioteca";
 $port = 3307;
-$user = "root";
-$password = "root";
+$user = "colores";
+$password = "colores";
 
 // Conexión a la base de datos
 try {

@@ -5,8 +5,8 @@ require_once "connection.php";
 require_once "traduccion_colores.php";
 
 $usuario = $_POST['usuario'];
-$color_es = $_POST['color'];
-$color_en = $array_colores_es_en[$color_es];
+$color_es = strtolower($_POST['color']);
+$color_en = $array_colores_es_en[$color_es] ?? $color_es;
 $id_color = $_POST['id_color'];
 
 // 1 - Definir la sentencia preparada
