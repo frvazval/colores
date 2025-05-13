@@ -11,9 +11,13 @@ require_once "traduccion_colores.php";
 
 $usuario = $_POST["usuario"];
 // para que no permita ejecutar codigo html y las comillas
-$usuario = htmlentities($usuario, ENT_QUOTES, "UTF-8");
+$usuario = htmlspecialchars($usuario, ENT_QUOTES, "UTF-8");
+$usuario = trim($usuario); // para que no haya espacios al principio y al final
+$color = htmlspecialchars($color);
+$color = trim($color); // para que no haya espacios al principio y al final
 
 
+// Vigila si un Bot intenta hacer un ataque
 if (!empty ($_POST['web'])) {
     // Si el campo web no está vacío, redirigir a la página de inicio
     // Porque significa que alguien ha intentado hacer un ataque
@@ -22,6 +26,8 @@ if (!empty ($_POST['web'])) {
     exit();
 }
 
+
+
 if (!hash_equals($_SESSION['token'], $_POST['token'])) {
     // Si el token no coincide, redirigir a la página de inicio
     $_SESSION['error'] = true;
@@ -29,7 +35,14 @@ if (!hash_equals($_SESSION['token'], $_POST['token'])) {
     exit();
 }
 
-$color_es = strtolower($_POST["color"]);
+if (empty($usuario) || empty($color)) {
+    // Si el usuario o el color está vacío, redirigir a la página de inicio
+    $_SESSION['error'] = true;
+    header('location:index.php');
+    exit();
+}
+
+$color_es = strtolower($_POST["color"]); // Para que no haya mayusculas
 $color_en = $array_colores_es_en[$color_es] ?? $color_es;
 
 $encontrado = false;

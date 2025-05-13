@@ -120,6 +120,10 @@ $array_filas = $select_pre->fetchAll();
         <?php endif; ?>
               
     </main>
+    <script src="js/colores.js"></script>
+    <footer>
+        <p>Colores - 2023</p>
+        <p>Desarrollado por <a href="
 </body>
 </html>
 
