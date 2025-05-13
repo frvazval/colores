@@ -67,7 +67,7 @@ $array_filas = $select_pre->fetchAll();
             <h2>Modifica tus datos</h2>
             <!-- Formulario para modificar los datos -->
             <form action="update.php" method="post">
-                <input type="hidden" name="id_color" value="<?=$fila['id_color']?>">
+                <input type="hidden" name="id_color" value="<?=$_GET['id']?>">
                 <fieldset>
                     <div>
                         <label for="usuario">Nombre del usuario</label>
