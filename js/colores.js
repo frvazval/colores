@@ -57,4 +57,4 @@ formInsert.addEventListener('submit', (e) =>{
         }
     })
     
-})
+});
