@@ -39,7 +39,7 @@ formInsert.addEventListener('submit', (e) =>{
         
     
     // Comprobación REGEX = REGular Expresions
-
+    
 
 
     // Enviar datos a insert.php por POST
