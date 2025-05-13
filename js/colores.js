@@ -56,5 +56,12 @@ formInsert.addEventListener('submit', (e) =>{
             "Content-type":"application/x-www-form-urlencoded"
         }
     })
+    .then(respuesta => respuesta.text())
+    .then(data => {
+        console.log(data);
+        location.reload()
+    }).catch(error => {
+        console.log("error: ", error);
+    })
     
 });
