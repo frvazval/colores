@@ -49,6 +49,12 @@ formInsert.addEventListener('submit', (e) =>{
     datos.append("token", token)
     datos.append("web", web)
 
-    fetch("../insert.php")
+    fetch("../insert.php", {
+        "method":"POST",
+        "body":datos.toString(),
+        "headers": {
+            "Content-type":"application/x-www-form-urlencoded"
+        }
+    })
     
 })
