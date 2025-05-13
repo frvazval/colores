@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Llama a la conexion una vez
 require_once "connection.php";
 require_once "traduccion_colores.php";
@@ -10,6 +10,16 @@ require_once "traduccion_colores.php";
 // echo "</pre>";
 
 $usuario = $_POST["usuario"];
+// para que no permita ejecutar codigo html y las comillas
+$usuario = htmlentities($usuario, ENT_QUOTES, "UTF-8");
+
+if (!hash_equals($_SESSION['token'], $_POST['token'])) {
+    // Si el token no coincide, redirigir a la página de inicio
+    $_SESSION['error'] = true;
+    header('location:index.php');
+    exit();
+}
+
 $color_es = strtolower($_POST["color"]);
 $color_en = $array_colores_es_en[$color_es] ?? $color_es;
 

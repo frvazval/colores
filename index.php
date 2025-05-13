@@ -1,4 +1,8 @@
 <?php
+error_reporting(0); // -> para que no muestre errores
+session_start(); // -> crea $_SESSION , que es un array asociativo
+$_SESSION['token'] = bin2hex(random_bytes(64)); // -> crea un token aleatorio de 64 bytes
+
 // echo "soy index.php";
 // Con el include no se generaria un error critico si no se conecta, solo un warning
 // include "connection.php";
@@ -71,11 +75,11 @@ $array_filas = $select_pre->fetchAll();
                 <fieldset>
                     <div>
                         <label for="usuario">Nombre del usuario</label>
-                        <input type="text" name="usuario" value="<?=$_GET['usuario']?>">
+                        <input type="text" name="usuario" value="<?=$_GET['usuario']?>" maxlength="20">
                     </div>
                     <div>
                         <label for="color">Nombre del color</label>
-                        <input type="text" name="color" value="<?=$_GET['color']?>">
+                        <input type="text" name="color" value="<?=$_GET['color']?>" maxlength="20">
                     </div>
                     <div>
                         <button type="submit">Enviar</button>
@@ -88,6 +92,7 @@ $array_filas = $select_pre->fetchAll();
             <h2>Indica tus datos</h2>
             <!-- Formulario para insertar un nuevo usuario y su color preferido -->
             <form action="insert.php" method="post">
+                <input type="hidden" name="token" value ="<?= $_SESSION['token'] ?>">
                 <fieldset>
                     <div>
                         <label for="usuario">Nombre del usuario</label>
@@ -108,7 +113,14 @@ $array_filas = $select_pre->fetchAll();
             
         </section>    
 
-        
+        <?php if ($_SESSION['error']): ?>
+            <p>El token no coincide. Por favor, vuelve a intentarlo.</p>
+        <?php endif; ?>
+              
     </main>
 </body>
 </html>
+
+<?php
+$_SESSION['error'] = false; // -> para que no vuelva a mostrar el error
+?>
