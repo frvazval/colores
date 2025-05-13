@@ -74,7 +74,7 @@ input {
     }
 }
 
-#errorFormulario {
+#errorUsuario, #errorColor {
     border: none;
     margin-top: 2rem;
     color: red;

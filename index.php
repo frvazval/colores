@@ -107,7 +107,7 @@ $array_filas = $select_pre->fetchAll();
                     <div>
                         <label for="color">Nombre del color</label>
                         <input type="text" name="color">
-                        <p id="errorcolor"></p>
+                        <p id="errorColor"></p>
                     </div>
                     <div>
                         <button type="submit">Enviar</button>
