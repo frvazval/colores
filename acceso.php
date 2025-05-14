@@ -49,25 +49,23 @@ foreach ($_POST as $clave => $valor) {
 // }
 
 
-$hash1 = password_hash($_POST['password'], PASSWORD_DEFAULT);
-$hash2 = password_hash($_POST['password2'], PASSWORD_DEFAULT);
+$hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-if ($hash1 !== $hash2) {
-    echo "Las contraseñas no coinciden";
-    die();
-}
 
-echo "Las contraseñas coinciden";
+// 1. Definir la sentencia preparada
+$insert = "INSERT INTO usuarios(nombre_usuario, password_usuario, email, idioma) VALUES (:nombre, :pass, :email, :idioma);";
+// 2. Preparación
+$prep = $conn->prepare($insert);
+// 3. Parametrizar los valores
+$prep -> bindParam(':nombre', $_POST['nombre'], PDO::PARAM_STR);
+$prep -> bindParam(':pass', $hash, PDO::PARAM_STR);
+$prep -> bindParam(':email', $_POST['email'], PDO::PARAM_STR);
+$prep -> bindParam(':idioma', $_POST['idioma'], PDO::PARAM_STR);
+// 4. Ejecución
+$insert_pre->execute([$usuario, $color_es, $color_en]);
 
-// // 1. Definir la sentencia preparada
-// $insert = "INSERT INTO usuarios(nombre_usuario, password_usuario, email, idioma) VALUES (:nombre, :pass, :email, :idioma);";
-// // 2. Preparación
-// $insert_pre = $conn->prepare($insert);
-// // 3. Ejecución
-// $insert_pre->execute([$usuario, $color_es, $color_en]);
+$insert_pre = null;
+$conn = null;
 
-// $insert_pre = null;
-// $conn = null;
-
-// // Volver a casa -> index.php
-// header('location: index.php');
+// Volver a casa -> index.php
+header('location: index.php');
