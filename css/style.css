@@ -75,6 +75,15 @@ h1 {
         }
     }
 }
+
+#errorUsuario, #errorColor, #errorPassword, #errorEmail {
+    border: none;
+    margin: .2rem 0 0;
+    color: red;
+    font-size: .75rem;
+}
+
+
 /* main {
     max-width: 1000px;
     margin: 0 auto;

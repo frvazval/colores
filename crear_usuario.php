@@ -22,8 +22,8 @@
                     <h2>Introduce tus datos</h2>
                     <div>
                         <label for="nombre">Nombre:</label>
-                        <input type="text" name="nombre" id="nombre">
-                        <p id="errorUsusario"></p>
+                        <input type="text" name="nombre" id="nombre" pattern="/^[A-zÑñÇçÁÉÍÓÚáéíóúÀÈÌÒÙàèìòùüï·\s]+$/">
+                        <p id="errorUsuario"></p>
                     </div>
                     <div>
                         <label for="password">Contraseña:</label>
