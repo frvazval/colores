@@ -38,6 +38,17 @@
                         <input type="email" name="email" id="email">
                         <p id="errorEmail"></p>
                     </div>
+                    <div>
+                        <label for="idioma">Idioma</label>
+                        <select name="idioma" id="idioma">
+                            <option value="ESP" selected>ESP</option>
+                            <option value="CAT">CAT</option>
+                            <option value="ESP">ENG</option>
+                        </select>                        
+                    </div>
+                    <div>
+                        <button type="submit">Crear cuenta</button>
+                    </div>
                 </fieldset>
             </form>
         </section>
