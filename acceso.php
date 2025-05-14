@@ -62,10 +62,12 @@ $prep -> bindParam(':pass', $hash, PDO::PARAM_STR);
 $prep -> bindParam(':email', $_POST['email'], PDO::PARAM_STR);
 $prep -> bindParam(':idioma', $_POST['idioma'], PDO::PARAM_STR);
 // 4. Ejecución
-$insert_pre->execute([$usuario, $color_es, $color_en]);
+$prep->execute();
 
-$insert_pre = null;
+$prep = null;
 $conn = null;
 
+echo "Usuario creado correctamente";
+
 // Volver a casa -> index.php
-header('location: index.php');
+// header('location: index.php');
