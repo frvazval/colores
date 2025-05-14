@@ -1,4 +1,8 @@
 <header>
-    <h1>Nuestros colores favoritos</h1>
+    <div>
+        <h1>Nuestros colores favoritos</h1>
+    </div>
+    
+
         
 </header>

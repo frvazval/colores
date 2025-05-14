@@ -4,4 +4,4 @@
 <meta name="keywords" content="Colores, Colors, Colours">
 <meta name="author" content="Paco">
 <meta name="description" content="Colores favoritos de nuestros amigos">
-
+<link rel="stylesheet" href="css/style.css">
