@@ -13,8 +13,7 @@ formLogin.addEventListener('submit', (evento) => {
     let password = formLogin['password'].value.trim()
     
 
-    console.log(nombre,password, password2,idioma,email);
-
+    
 
     const mensajeError = "Contenido requerido";
     if (nombre === "" && password === "") {

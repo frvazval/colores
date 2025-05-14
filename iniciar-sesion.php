@@ -31,7 +31,7 @@
                     
                     <div>
                         <button type="submit">Iniciar sesión</button>
-                        <a href="crear-usuario.php">Ya tengo cuenta</a>
+                        <a href="crear-usuario.php">Crear cuenta</a>
                     </div>
                 </fieldset>
             </form>
