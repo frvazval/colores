@@ -53,7 +53,8 @@ $array_filas = $select_pre->fetchAll();
                     
                 ?>
                 <div style="background-color: <?=$fila['color_en'] ?>;color:<?=$color?>;">
-                    <p> <?php echo $fila["usuario"] ?></p>
+                    <p> <?= htmlspecialchars($fila['usuario'], ENT_QUOTES, "UTF-8")   ?> </p>
+
                     <span class="icons">
                         <a href="index.php?id=<?=$fila['id_color']?>&usuario=<?=$fila['usuario']?>&color=<?=$fila['color_es']?>" title="Modificar valores">
                             <i class="fa-regular fa-pen-to-square"></i>
