@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
     <?php include_once "modulos/meta.php"; ?>
-    <title>Crear cuenta</title>
-    <script src="js/crear-usuario.js" defer></script>
+    <title>Login</title>
+    <script src="js/login.js" defer></script>
 </head>
 <body>
      <?php include_once "modulos/header.php"; ?>
@@ -14,7 +14,7 @@
         </section>
 
         <section>
-            <form name="formNewUser">
+            <form name="formLogin">
                 <fieldset>
                     <h2>Introduce tus datos</h2>
                     <div>
@@ -30,8 +30,8 @@
                     </div>
                     
                     <div>
-                        <button type="submit">Crear cuenta</button>
-                        <a href="iniciar-sesion.php">Ya tengo cuenta</a>
+                        <button type="submit">Iniciar sesión</button>
+                        <a href="crear-usuario.php">Ya tengo cuenta</a>
                     </div>
                 </fieldset>
             </form>
