@@ -55,7 +55,7 @@ formNewUser.addEventListener('submit', (evento) => {
   datos.append("email", email);
   datos.append("idioma", idioma);
 
-  fetch("../acceso.php",{
+  fetch("../controlador/acceso.php",{
     "method": "POST",
     "body": datos.toString(),
     "headers": {
