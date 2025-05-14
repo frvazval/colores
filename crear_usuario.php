@@ -22,7 +22,7 @@
                     <h2>Introduce tus datos</h2>
                     <div>
                         <label for="nombre">Nombre:</label>
-                        <input type="text" name="nombre" id="nombre" pattern="/^[A-zÑñÇçÁÉÍÓÚáéíóúÀÈÌÒÙàèìòùüï·\s]+$/">
+                        <input type="text" name="nombre" id="nombre">
                         <p id="errorUsuario"></p>
                     </div>
                     <div>

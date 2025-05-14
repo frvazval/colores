@@ -45,5 +45,29 @@ formNewUser.addEventListener('submit', (evento) => {
   }
 
   // Comprobación por REGEX
-  
-})
+
+  // Enviar datos a acceso.php
+  const datos = new URLSearchParams();
+  datos.append("nombre", nombre);
+  datos.append("password", password);
+  datos.append("password2", password2);
+  datos.append("email", email);
+  datos.append("idioma", idioma);
+
+  fetch("../acceso.php",{
+    "method": "POST",
+    "body": datos.toString(),
+    "headers": {
+        "Content-type":"application/x-www-form-urlencoded"
+    }
+  })
+  .then(respuesta => respuesta.text())
+  .then(data => {
+    console.log(data);
+    // location.reload()
+  }).catch(error => {
+    console.log("Error: ", error);
+  })
+
+
+});
