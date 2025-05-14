@@ -48,6 +48,7 @@
                     </div>
                     <div>
                         <button type="submit">Crear cuenta</button>
+                        <a href="acceso.php">Acceder</a>
                     </div>
                 </fieldset>
             </form>
