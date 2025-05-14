@@ -1,2 +1,0 @@
-php -S localhost:30000
-http://localhost:30000

@@ -11,37 +11,34 @@ if (!$verificarNombre || !$verificarPassword) {
 }
 
 // Quitar los espacios
-
 $nombre = trim($_POST['nombre']);
 $password = trim($_POST['password']);
 
-// Comprobar que no esten vacios
+// Comprobar que no estén vacíos
 if (empty($nombre) || empty($password)) {
     echo "Error en los valores";
     die();
 }
 
-
 $nombre = htmlspecialchars($nombre, ENT_QUOTES, "UTF-8");
-$password = htmlspecialchars($password, ENT_QUOTES, "UTF-8");
+$password = htmlspecialchars($password, ENT_QUOTES, "UTF-8"); 
 
-// Comprobar si el usuario existe
+// Comprobar si existe el usuario
 $select = "SELECT * FROM usuarios WHERE nombre_usuario = :nombre";
 $prep = $conn->prepare($select);
 $prep->bindParam(":nombre", $nombre, PDO::PARAM_STR);
 $prep->execute();
 
-$usuarioExistente = $prep->fetch(PDO::FETCH_ASSOC);
+$UsuarioExistente = $prep->fetch(PDO::FETCH_ASSOC);
 
-if (!$usuarioExistente) {
+if (!$UsuarioExistente) {
     echo "UsuarioInexistente";
     die();
 }
-
-
-if (!password_verify($password, $usuarioExistente['password_usuario'])) {
-    echo "passwordIncorrecto";
+if (!password_verify($password, $UsuarioExistente['password_usuario'])) {
+    echo "PasswordIncorrecto";
     die();
 }
 
 echo "Usuario identificado";
+

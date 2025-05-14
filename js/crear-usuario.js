@@ -1,22 +1,20 @@
 // Capturar el objeto formulario
 const formNewUser = document.forms['formNewUser']
 
-formNewUser.addEventListener('submit', (evento) => {
-    evento.preventDefault();
-
+formNewUser.addEventListener('submit', (event) => {
+    event.preventDefault();
     document.getElementById("errorUsuario").textContent = "";
     document.getElementById("errorPassword").textContent = "";
     document.getElementById("errorEmail").textContent = "";
 
     let nombre = formNewUser['nombre'].value.trim()
-    // Pendiente corregir nombre
+    // Pendiente: Corregir el nombre
     let password = formNewUser['password'].value.trim()
     let password2 = formNewUser['password2'].value.trim()
     let idioma = formNewUser['idioma'].value
     let email = formNewUser['email'].value.trim()
 
-    console.log(nombre,password, password2,idioma,email);
-
+    // console.log(nombre, password, password2, idioma, email);
 
     const mensajeError = "Contenido requerido";
     if (nombre === "" && password === "" && password2 === "" && email === "") {
@@ -33,27 +31,27 @@ formNewUser.addEventListener('submit', (evento) => {
     document.getElementById("errorPassword").textContent = mensajeError;
     return;
   }
-
-   if (email === "") {
+    if (email === "") {
     document.getElementById("errorEmail").textContent = mensajeError;
     return;
   }
 
-  // Si las 2 contraseñas no coinciden
+  // Si las dos contraseñas no coinciden
+if (password !== password2) {
+    document.getElementById("errorPassword").textContent = "Las contraseñas no coinciden"
+    return;
+}
 
-  if(password !== password2) {
-    document.getElementById("errorPassword").textContent = "Las contraseñas no coinciden";
-  }
+// Comprobación por REGEX
 
-  // Comprobación por REGEX
 
-  // Enviar datos a acceso.php
+// Enviar datos a acceso.php
   const datos = new URLSearchParams();
   datos.append("nombre", nombre);
   datos.append("password", password);
   datos.append("password2", password2);
   datos.append("email", email);
-  datos.append("idioma", idioma);
+   datos.append("idioma", idioma);
 
   fetch("../controlador/acceso.php",{
     "method": "POST",
@@ -65,10 +63,13 @@ formNewUser.addEventListener('submit', (evento) => {
   .then(respuesta => respuesta.text())
   .then(data => {
     console.log(data);
-    // location.reload()
+    // alert(`Usuario ${nombre} creado correctamente`)
+    //  location.reload()
   }).catch(error => {
     console.log("Error: ", error);
   })
 
 
-});
+
+
+})
