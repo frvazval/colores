@@ -53,7 +53,7 @@ $array_filas = $select_pre->fetchAll();
     </header>
     <main>
         <section>
-            <h2>Nuestros usuarios</h2>
+            <h2>Nuestros amigos</h2>
 
             <?php foreach ($array_filas as $fila) : ?>
                 <?php $color = "white";

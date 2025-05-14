@@ -18,3 +18,13 @@ GRANT ALL PRIVILEGES ON colores.* to 'colores'@'%' with GRANT OPTION;
 
 -- solo para insertar, borrar, etc...
 GRANT select, insert, update, delete ON colores.* to 'colores'@'%';
+
+CREATE TABLE usuarios (
+id_usuario int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nombre_usuario varchar(50) NOT NULL UNIQUE,
+password_usuario varchar(255) NOT NULL UNIQUE,
+idioma varchar(3) DEFAULT "ESP"
+);
+
+ALTER TABLE colores
+ADD COLUMN id_usuario int NOT NULL DEFAULT "1";
