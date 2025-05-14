@@ -1,2 +1,2 @@
 php -S localhost:30000
-http://localhost:30000/connection.php
+http://localhost:30000
