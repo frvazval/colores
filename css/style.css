@@ -34,11 +34,45 @@ h1 {
 }
 
 .main-crear-usuario {
+    max-width: 1000px;
+    margin: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 2rem;
 
     img {
         width: 100%;
+    }
+
+    fieldset {
+        padding: 1.5rem;
+
+        label {
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: .5rem 1rem;
+        }
+
+        div, select {
+            margin: .5rem 0;
+        }
+
+        div:last-child {
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        button {
+            background-color: steelblue;
+            border: none;
+            border-radius: 5px;
+            padding: .5rem 1rem;
+            width: 100%;
+            margin: 1rem 0;
+        }
     }
 }
 /* main {

@@ -6,11 +6,12 @@
 <head>
     <?php include_once "modulos/meta.php"; ?>
     <title>Crear cuenta</title>
+    <script src="js/crear-usuario.js" defer></script>
 </head>
 <body>
      <?php include_once "modulos/header.php"; ?>
 
-     <main class="main.crear-usuario">
+     <main class="main-crear-usuario">
         <section>
             <img src="img/colores.jpg" alt="colores">
         </section>
@@ -18,6 +19,7 @@
         <section>
             <form name="formNewUser">
                 <fieldset>
+                    <h2>Introduce tus datos</h2>
                     <div>
                         <label for="nombre">Nombre:</label>
                         <input type="text" name="nombre" id="nombre">
