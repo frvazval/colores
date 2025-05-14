@@ -9,6 +9,7 @@ formNewUser.addEventListener('submit', (evento) => {
     document.getElementById("errorEmail").textContent = "";
 
     let nombre = formNewUser['nombre'].value.trim()
+    // Pendiente corregir nombre
     let password = formNewUser['password'].value.trim()
     let password2 = formNewUser['password2'].value.trim()
     let idioma = formNewUser['idioma'].value
