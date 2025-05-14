@@ -48,7 +48,7 @@ formInsert.addEventListener('submit', (e) =>{
     const reglaUsuario = (regex2.test(usuario) || regex3.test(usuario)) && !regex1.test(usuario)
     const reglaColor = (regex2.test(color) || regex3.test(color)) && !regex1.test(color)
 
-    const mensajeRegex = "Caracteres no validosa"
+    const mensajeRegex = "Caracteres no validos"
     if (reglaUsuario && reglaColor) {
         document.getElementById('errorUsuario').innerHTML = mensajeRegex;
         document.getElementById('errorColor').innerHTML = mensajeRegex;
