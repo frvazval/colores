@@ -1,137 +1,149 @@
 <?php
-error_reporting(0); // -> para que no muestre errores
-session_start(); // -> crea $_SESSION , que es un array asociativo
-$_SESSION['token'] = bin2hex(random_bytes(64)); // -> crea un token aleatorio de 64 bytes
+error_reporting(0);
+session_start(); // -> $_SESSION
+$_SESSION['token'] = bin2hex(random_bytes(64));
 
-// echo "soy index.php";
-// Con el include no se generaria un error critico si no se conecta, solo un warning
-// include "connection.php";
-// Hace el include solo una vez
-// include_once "connection.php";
-// Con el require se generaria un error critico si no se conecta, y no se ejecutaria el resto del codigo
-// require "connection.php";
-// Hace el require solo una vez
-require_once "connection.php";
 
-$array_fondo_claro = ["white", "yellow", "pink", "darksalmon", "orange"];
+// include 'connection.php';
+// require 'connection.php';
+// include_once 'connection.php';
 
-// 1 - Definir la sentencia (query)
+// Llamar a la conexión una vez
+require_once 'connection.php';
+
+$array_fondo_claro = [
+    "white",
+    "yellow",
+    "pink",
+    "darksalmon",
+    "orange"
+];
+
+// 1. Definir la sentencia (query)
 $select = "SELECT * FROM colores;";
-// 2 - Preparar la sentencia
+// 2. Preparación
 $select_pre = $conn->prepare($select);
-// 3 - Ejecutar la sentencia
+// 3. Ejecución
 $select_pre->execute();
-// 4 - Obtener los resultados
+// 4. Obtención de los valores
 $array_filas = $select_pre->fetchAll();
-// 5 - Mostrar los resultados
+
 // foreach ($array_filas as $fila) {
 //     echo "<pre>";
-//     print_r($fila);
+//     print_r ($fila);
 //     echo "</pre>";
 // }
+
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colores</title>   
+    <title>Colores</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <header><h1>Nuestros colores preferidos</h1></header>
+    <header>
+        <h1>Nuestros colores preferidos</h1>
+    </header>
     <main>
         <section>
             <h2>Nuestros usuarios</h2>
-            <?php foreach($array_filas as $fila) : ?>
-                <?php $color = "white";
-                    if (in_array($fila['color_en'],$array_fondo_claro)) {
-                        $color = "black";
-                    }   
-                    
-                ?>
-                <div style="background-color: <?=$fila['color_en'] ?>;color:<?=$color?>;">
-                    <p> <?= htmlspecialchars($fila['usuario'], ENT_QUOTES, "UTF-8")   ?> </p>
 
+            <?php foreach ($array_filas as $fila) : ?>
+                <?php $color = "white";
+                if (in_array($fila['color_en'], $array_fondo_claro)) {
+                    $color = "black";
+                }
+                ?>
+                <div style="background-color: <?= $fila['color_en'] ?>;color:<?= $color ?>;">
+                    <p> <?= htmlspecialchars($fila['usuario'], ENT_QUOTES, "UTF-8")   ?> </p>
                     <span class="icons">
-                        <a href="index.php?id=<?=$fila['id_color']?>&usuario=<?=$fila['usuario']?>&color=<?=$fila['color_es']?>" title="Modificar valores">
-                            <i class="fa-regular fa-pen-to-square"></i>
+                        <a href="index.php?id=<?= $fila['id_color'] ?>&usuario=<?= $fila['usuario'] ?>&color=<?= $fila['color_es'] ?>" title="Modificar valores">
+                            <i class="fa-solid fa-pen-to-square"></i>
                         </a>
-                        <a href="delete.php?id=<?=$fila['id_color']?>" title="Eliminar elementos">
+
+                        <a href="delete.php?id=<?= $fila['id_color'] ?>" title="Eliminar elemento">
                             <i class="fa-solid fa-trash-can"></i>
                         </a>
-                </span>
+
+                    </span>
                 </div>
 
             <?php endforeach ?>
         </section>
         <section>
-            <?php if($_GET): ?>
-            <h2>Modifica tus datos</h2>
-            <!-- Formulario para modificar los datos -->
-            <form action="update.php" method="post">
-                <input type="hidden" name="id_color" value="<?=$_GET['id']?>">
-                <fieldset>
-                    <div>
-                        <label for="usuario">Nombre del usuario</label>
-                        <input type="text" name="usuario" value="<?=$_GET['usuario']?>" maxlength="20">
-                    </div>
-                    <div>
-                        <label for="color">Nombre del color</label>
-                        <input type="text" name="color" value="<?=$_GET['color']?>" maxlength="20">
-                    </div>
-                    <div>
-                        <button type="submit">Enviar</button>
-                        <a href="index.php">Cancelar</a>
-                    </div>
-                </fieldset>
-            </form>
-                <?php else: ?>
 
-            <h2>Indica tus datos</h2>
-            <!-- Formulario para insertar un nuevo usuario y su color preferido -->
-             <!-- Linea comentada para que los datos no vayan directamente a insert.php
-            <form action="insert.php" method="post"> -->
+            <?php if ($_GET) : ?>
+                <!-- Formulario para actualizar los datos -->
+                <h2>Modifica tus datos</h2>
+                <form action="update.php" method="post">
+                    <input type="hidden" name="id_color" value="<?= $_GET['id'] ?>">
+                    <fieldset>
+                        <div>
+                            <label for="usuario">Nombre del usuario</label>
+                            <input type="text" id="usuario" name="usuario" value="<?= $_GET['usuario'] ?>" maxlength="50">
+                        </div>
+                        <div>
+                            <label for="color">Nombre del color:</label>
+                            <input type="text" id="color" name="color" value="<?= $_GET['color'] ?>" maxlength="25">
+                        </div>
+                        <div>
+                            <button type="submit">Enviar datos</button>
+                            <a href="index.php">Cancelar</a> 
+                        </div>
+                    </fieldset>
 
-            <form name="formInsert">
-                <input type="hidden" name="token" value ="<?= $_SESSION['token'] ?>">
-                <!-- Este input text es para el honeypot, no lo ve el usuario -->
-                <input type="text" name="web" style="display:none">
-                <fieldset>
-                    <div>
-                        <label for="usuario">Nombre del usuario</label>
-                        <input type="text" name="usuario">
-                        <p id="errorUsuario"></p>
-                    </div>
-                    <div>
-                        <label for="color">Nombre del color</label>
-                        <input type="text" name="color">
-                        <p id="errorColor"></p>
-                    </div>
-                    <div>
-                        <button type="submit">Enviar</button>
-                        <button type="reset">Limpiar formulario</button>
-                    </div>
-                </fieldset>
-            </form>  
-           <?php endif ?>                           
-           
-            
-            <?php if ($_SESSION['error']): ?>
-            <p>El token no coincide. Por favor, vuelve a intentarlo.</p>
-            <?php endif; ?>
-        </section>    
+                </form>
 
-        
-              
+            <?php else : ?>
+                <!-- Formulario para insertar los datos -->
+
+                <h2>Pon aquí tus datos</h2>
+                <!-- Linea comentada para que los datos no vayan directamente a insert.php  -->
+                <!-- <form action="insert.php" method="post"> -->
+                    <form name="formInsert">
+
+                    <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
+                    <input type="text" name="web" style="display:none">
+                    <fieldset>
+                        <div>
+                            <label for="usuario">Nombre del usuario</label>
+                            <input type="text" id="usuario" name="usuario">
+                            <p id="errorUsuario"></p>
+                        </div>
+                        <div>
+                            <label for="color">Nombre del color:</label>
+                            <input type="text" id="color" name="color">
+                            <p id="errorColor"></p>
+                        </div>
+                        <div>
+                            <button type="submit">Enviar datos</button>
+                            <button type="reset">Limpiar formulario</button>
+                        </div>
+                    </fieldset>
+
+                </form>
+
+            <?php endif ?>
+
+
+
+                <?php if ($_SESSION['error']) : ?>
+                    <p>Se ha producido un error</p>
+                <?php endif; ?>
+
+        </section>
     </main>
-    <script src="js/colores.js"></script>
-    
-</body>
-</html>
 
+    <script src="js/colores.js"></script>
+</body>
+
+</html>
 <?php
-$_SESSION['error'] = false; // -> para que no vuelva a mostrar el error
-?>
+$_SESSION['error'] = false;
