@@ -43,4 +43,7 @@ formNewUser.addEventListener('submit', (evento) => {
   if(password !== password2) {
     document.getElementById("errorPassword").textContent = "Las contraseñas no coinciden";
   }
+
+  // Comprobación por REGEX
+  
 })
