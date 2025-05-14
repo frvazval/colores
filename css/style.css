@@ -2,8 +2,8 @@
 @font-face {
     font-family: 'Lato';
     src: url('../fonts/Lato/Lato-Regular.woff2') format ('woff2'),
-        url('../fonts/Lato/Lato-Regular.woff') format ('woff'),
-        url('../fonts/Lato/Lato-Regular.ttf') format ('truetype')
+         url('../fonts/Lato/Lato-Regular.woff') format ('woff'),
+         url('../fonts/Lato/Lato-Regular.ttf') format ('truetype')
 
 }
 
@@ -16,16 +16,32 @@
 }
 
 header {
-    background-color: #444;
-    
+    background-color: #444;  
+    padding: 1rem 0;
+
+    div {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        color: white;
+    }
 }
 
 h1 {
-    text-align: center;
-    margin: 1rem 0;
+    text-align: center;   
+
 }
 
-main {
+.main-crear-usuario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    img {
+        width: 100%;
+    }
+}
+/* main {
     max-width: 1000px;
     margin: 0 auto;
     display: grid;
@@ -95,4 +111,4 @@ input {
     margin: .2rem 0 0;
     color: red;
     font-size: .75rem;
-}
+} */
