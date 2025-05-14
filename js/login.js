@@ -51,6 +51,4 @@ formLogin.addEventListener('submit', (event) => {
   })
 
 
-
-
 })

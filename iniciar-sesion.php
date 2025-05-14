@@ -12,10 +12,10 @@
     <?php include_once 'modulos/header.php';?>
 
     <main class="main-crear-usuario">
-        <section>
-<img src="img/colores.webp" alt="Manos pintadas de colores">
-        </section>
-        <section>
+    <section>
+        <img src="img/colores.jpg" alt="colores">
+    </section>
+<section>
 
 
 <form name="formLogin">
