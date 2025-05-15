@@ -31,7 +31,7 @@ CREATE TABLE `colores` (
   `color_en` varchar(25) DEFAULT NULL,
   `id_usuario` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`id_color`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `colores` (
 
 LOCK TABLES `colores` WRITE;
 /*!40000 ALTER TABLE `colores` DISABLE KEYS */;
-INSERT INTO `colores` VALUES (2,'Dani','darksalmon','darksalmon',3),(3,'Chita','rojo','red',1),(4,'Dumbo','amarillo','yellow',1),(5,'Peter Pan','blanco','white',1),(6,'Caputxeta vermella','rojo','red',1),(7,'Garfio','negro','black',1),(14,'Pinocho','azul','blue',2),(15,'Alba','amarillo','yellow',3),(16,'aaa','rojo','red',2),(19,'Chita','rojo','red',3);
+INSERT INTO `colores` VALUES (3,'blade','rojo','red',1),(4,'jane','verde','green',1),(5,'superman','azul','blue',2),(6,'batman','negro','black',1),(9,'chita','amarillo','yellow',2),(10,'black panther','negro','black',1);
 /*!40000 ALTER TABLE `colores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,7 +62,7 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `nombre_usuario` (`nombre_usuario`),
   UNIQUE KEY `password_usuario` (`password_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,9 +71,17 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Batman','$2y$10$YdQ.x5riHRqZ4iX4OFCMeun.nfSqeKOEf1vyPzjNfxfYdqW5aZOAi','ENG','batman@joker.com',NULL,NULL),(3,'Robin','$2y$10$S2FaPMstHQ.gM7frNkptpORxZ/i85UKOxrhG6k5Qv.GIl3jvFwPX.','CAT','pepe@test.com',NULL,NULL);
+INSERT INTO `usuarios` VALUES (1,'Batman','$2y$10$vfcnQEbFhWzCKP0ZsI3F2.KG0j30a3BTf9SN7bNmakDu4onE3AgJe','ESP','t@gg.i',NULL,NULL),(2,'Heidi','$2y$10$NT49DODbI3Qu3llzC2wIsuD5ONnXKf.TwPysrvsnF8Sv4Vregpfwe','ESP','dsdsdsdddsd@xcxcxxc.gh',NULL,NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'colores'
+--
+
+--
+-- Dumping routines for database 'colores'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -84,4 +92,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-15 20:00:22
+-- Dump completed on 2025-05-15 19:35:49
