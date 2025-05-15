@@ -1,3 +1,4 @@
+
 <form name="formNewUser">
 <fieldset>
 <h2>Introduce tus datos</h2>
@@ -35,13 +36,13 @@
 </div>
 <div>
     <a href="index.php?formulario=login">Ya tengo cuenta</a>
-    <a href="index.php?formulario=crear_cuenta">Crear cuenta</a>
 </div>
 <div>
     <button type="submit">Crear Cuenta</button>
-    <a href="iniciar-sesion.php">Ya tengo cuenta</a>
+  
 </div>
 
 </fieldset>
 
 </form>
+        </section>

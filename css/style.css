@@ -32,7 +32,9 @@ h1 {
   text-align: center;
 }
 
+
 main {
+
   max-width: 1000px;
   margin: 2rem auto;
 
@@ -46,6 +48,7 @@ main {
     object-fit: contain;
   }
 }
+
 
 .main-crear-usuario {
   
@@ -155,4 +158,3 @@ input {
     text-decoration: none;
   }
 }
-

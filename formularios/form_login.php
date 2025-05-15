@@ -1,3 +1,4 @@
+
 <form name="formLogin">
 <fieldset>
 <h2>Introduce tus datos</h2>
@@ -14,14 +15,14 @@
     <p id="errorPassword"></p>
 </div>
 <div>
-    <a href="index.php?formulario=login">Ya tengo cuenta</a>
-    <a href="index.php?formulario=crear_cuenta">Crear cuenta</a>
+       
+<a href="index.php?formulario=crear_cuenta">Crear cuenta</a>
+ <a href="index.php?formulario=reset">No recuerdo la contraseña</a>
 </div>
-
 
 <div>
     <button type="submit">Acceder</button>
-    <a href="crear-usuario.php">Crear cuenta</a>
+   
 </div>
 
 </fieldset>
