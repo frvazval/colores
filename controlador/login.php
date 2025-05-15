@@ -43,5 +43,6 @@ if (!password_verify($password, $UsuarioExistente['password_usuario'])) {
 
 
 $_SESSION['id_usuario'] = $UsuarioExistente['id_usuario'];
+$_SESSION['usuario'] = $UsuarioExistente['nombre_usuario'];
 // echo "Usuario identificado";
 
