@@ -24,7 +24,18 @@ require_once 'controlador/connection.php';
             <img src="img/colores.jpg" alt="colores">
         </section>
         <section >
+            <?php
+                $formulario = $_GET['formulario'] ?? 'login';
+                switch ($formulario) {
+                    case "login":
+                        include_once 'formularios/form_login.php';
+                        break;
+                    case "crear_cuenta":
+                        include_once 'formularios/form_crear_usuario.php';
+                        break;
+                }
 
+            ?>
             
 
         </section>

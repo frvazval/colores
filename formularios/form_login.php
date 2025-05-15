@@ -13,6 +13,10 @@
     <input type="password" name="password" id="password" maxlength="12">
     <p id="errorPassword"></p>
 </div>
+<div>
+    <a href="index.php?formulario=login">Ya tengo cuenta</a>
+    <a href="index.php?formulario=crear_cuenta">Crear cuenta</a>
+</div>
 
 
 <div>

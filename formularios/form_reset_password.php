@@ -7,10 +7,13 @@
     <input type="text" name="usuario" id="usuario" >
     <p id="errorUsuario"></p>
 </div>
-
+<div>
+    <a href="index.php?formulario=login">Ya tengo cuenta</a>
+    <a href="index.php?formulario=crear_cuenta">Crear cuenta</a>
+</div>
 <div>
     <button type="submit">Acceder</button>
-    <a href="crear-usuario.php">Crear cuenta</a>
+    
 </div>
 
 </fieldset>
