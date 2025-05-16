@@ -69,10 +69,13 @@ $array_filas = $select_pre->fetchAll();
                         <a href="colores.php?id=<?= $fila['id_color'] ?>&usuario=<?= $fila['usuario'] ?>&color=<?= $fila['color_es'] ?>" title="Modificar valores">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
-
-                        <a href="delete.php?id=<?= $fila['id_color'] ?>" title="Eliminar elemento">
+                        <form action="delete.php" method="POST">
+                            <input type="text" name="quitar" id="quitar" value="<?= $fila['id_color'] ?>"> 
+                            <button><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
+                        <!-- <a href="delete.php?id=<?= $fila['id_color'] ?>" title="Eliminar elemento">
                             <i class="fa-solid fa-trash-can"></i>
-                        </a>
+                        </a> -->
 
                     </span>
                 </div>
