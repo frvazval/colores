@@ -70,12 +70,12 @@ $array_filas = $select_pre->fetchAll();
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
                         <form action="delete.php" method="POST">
-                            <input type="text" name="quitar" id="quitar" value="<?= $fila['id_color'] ?>"> 
-                            <button><i class="fa-solid fa-trash-can"></i></button>
+                            <input type="hidden" name="quitar" id="quitar" value="<?= $fila['id_color'] ?>">
+                        <button> <i class="fa-solid fa-trash-can"></i></button>
                         </form>
-                        <!-- <a href="delete.php?id=<?= $fila['id_color'] ?>" title="Eliminar elemento">
-                            <i class="fa-solid fa-trash-can"></i>
-                        </a> -->
+                        <!-- <a href="delete.php?id=" title="Eliminar elemento"> -->
+                           
+                        </a>
 
                     </span>
                 </div>
@@ -115,6 +115,7 @@ $array_filas = $select_pre->fetchAll();
                     <form name="formInsert" class="formColores">
 <input type="hidden" name="id_usuario" value="<?= $_SESSION['id_usuario'] ?>">
                     <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
+                    
                     <input type="text" name="web" style="display:none">
                     <fieldset>
                         <div>
