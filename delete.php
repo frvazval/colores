@@ -6,7 +6,6 @@ if($_GET) {
 
 }
 
-
 // Llamar a la conexión una vez
 require_once 'controlador/connection.php';
 
